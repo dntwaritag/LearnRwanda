@@ -123,3 +123,210 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: OnboardingScreen(),
+    );
+  }
+}
+
+class OnboardingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset('assets/images/learning_image.png', width: 250, height: 200),
+          SizedBox(height: 20),
+          Text(
+            "“Constantly Inspired by Learning”",
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 10),
+          Text(
+            "Anywhere, anytime. Study whenever you\nlike—the choice is yours!",
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 40),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.circle, size: 10, color: Colors.grey),
+              SizedBox(width: 5),
+              Icon(Icons.circle, size: 10, color: Colors.blue),
+              SizedBox(width: 5),
+              Icon(Icons.circle, size: 10, color: Colors.grey),
+            ],
+          ),
+          SizedBox(height: 40),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,  // Set button color to blue
+              padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            ),
+            child: Text("Get Started", style: TextStyle(fontSize: 16)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class RegisterScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Welcome to the journey!",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 10),
+            Text(
+              "Let’s prepare your career.",
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 40),
+            CustomTextField(label: "Enter your name"),
+            CustomTextField(label: "Enter your email"),
+            CustomTextField(label: "Enter your password", isPassword: true),
+            CustomTextField(label: "Confirm Password", isPassword: true),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,  // Set button color to blue
+                padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              child: Text("Register", style: TextStyle(fontSize: 16)),
+            ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              child: Text(
+                "Already have an account? Sign in",
+                style: TextStyle(fontSize: 14, color: Colors.blue),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LoginScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Welcome Again!",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            Image.asset('assets/images/lightbulb.png', width: 150, height: 150),
+            SizedBox(height: 20),
+            CustomTextField(label: "Enter email"),
+            CustomTextField(label: "Enter your password", isPassword: true),
+            SizedBox(height: 10),
+            GestureDetector(
+              onTap: () {
+                // Add forgot password functionality
+              },
+              child: Text(
+                "Forgot password?",
+                style: TextStyle(fontSize: 14, color: Colors.blue),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Add login functionality
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,  // Set button color to blue
+                padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              child: Text("Login", style: TextStyle(fontSize: 16)),
+            ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
+              },
+              child: Text(
+                "Don't have an account? Sign up",
+                style: TextStyle(fontSize: 14, color: Colors.blue),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomTextField extends StatelessWidget {
+  final String label;
+  final bool isPassword;
+
+  CustomTextField({required this.label, this.isPassword = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: TextField(
+        obscureText: isPassword,
+        decoration: InputDecoration(
+          labelText: label,
+          labelStyle: TextStyle(color: Colors.grey),
+          contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),  // Rounded corners
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),  // Rounded corners
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),  // Rounded corners
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+        ),
+      ),
+    );
+  }
+}
