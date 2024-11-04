@@ -1,4 +1,4 @@
-class FirstSeeLearningScreen extends StatelessWidget {
+class ConnectWithEveryoneScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,14 +9,14 @@ class FirstSeeLearningScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Replace 'assets/first_see_learning_image.svg' with the actual file name
+              // Replace 'assets/connect_with_everyone_image.svg' with the actual file name
               SvgPicture.asset(
-                'assets/first_see_learning_image.svg',
+                'assets/connect_with_everyone_image.svg',
                 height: 200,
               ),
               SizedBox(height: 20),
               Text(
-                "First See Learning",
+                "Connect With Everyone",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -24,7 +24,7 @@ class FirstSeeLearningScreen extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                "Forget about all the paper, get it all in one learning!",
+                "Always keep in touch with your tutor & friends. Let's get connected!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
@@ -35,17 +35,17 @@ class FirstSeeLearningScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Icon(Icons.circle, size: 10, color: Colors.grey),
+                  SizedBox(width: 5),
+                  Icon(Icons.circle, size: 10, color: Colors.grey),
+                  SizedBox(width: 5),
                   Icon(Icons.circle, size: 10, color: Colors.blue),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
                 ],
               ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/connectWithEveryone');
+                  // Handle 'Next' button action if needed
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,
