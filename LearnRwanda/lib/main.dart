@@ -1,68 +1,99 @@
-class ConnectWithEveryoneScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Replace 'assets/connect_with_everyone_image.svg' with the actual file name
-              SvgPicture.asset(
-                'assets/connect_with_everyone_image.svg',
-                height: 200,
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Connect With Everyone",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                "Always keep in touch with your tutor & friends. Let's get connected!",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[700],
-                ),
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.blue),
-                ],
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle 'Next' button action if needed
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                child: Text(
-                  "Next",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-            ],
-          ),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("9:40 pm", style: TextStyle(color: Colors.black)),
+            Row(
+              children: [
+                Icon(Icons.signal_cellular_alt, color: Colors.black),
+                SizedBox(width: 5),
+                Icon(Icons.wifi, color: Colors.black),
+                SizedBox(width: 5),
+                Icon(Icons.battery_full, color: Colors.black),
+              ],
+            ),
+          ],
         ),
       ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 20),
+            Image.asset(
+              'LearnRwanda/lib/Assets/About1.png' , 
+              height: 100,
+            ),
+            SizedBox(height: 20),
+            Text("Team Members", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            SizedBox(height: 30),
+            TeamMember(
+              name: "CEO/Owner Denis Ntwaritaganzwa",
+              imagePath: 'LearnRwanda/lib/Assets/Denis.png', 
+            ),
+            TeamMember(
+              name: "Senior Software Engineer  Vanessa UMUGWANEZA",
+              imagePath: 'LearnRwanda/lib/Assets/vanessa.png', 
+            ),
+            TeamMember(
+              name: "Graphic Designer Ange Mukundente",
+              imagePath: 'LearnRwanda/lib/Assets/Ange.png', // Add your designer image here
+            ),
+            TeamMember(
+              name: "System Analyst Henriette Cyiza",
+              imagePath: 'LearnRwanda/lib/Assets/Henriette.png', // Add your analyst image here
+            ),
+            TeamMember(
+              name: "IT Specialist Magot",
+              imagePath: 'LearnRwanda/lib/Assets/Magot.png', // Add your IT specialist image here
+            ),
+            SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TeamMember extends StatelessWidget {
+  final String name;
+  final String imagePath;
+
+  TeamMember({required this.name, required this.imagePath});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 50,
+          backgroundImage: AssetImage(imagePath),
+        ),
+        SizedBox(height: 10),
+        Text(name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        SizedBox(height: 30),
+      ],
     );
   }
 }
