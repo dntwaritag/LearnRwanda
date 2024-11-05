@@ -1,1 +1,1 @@
-# LearnRwanda
+# LearnRwanda Platform
