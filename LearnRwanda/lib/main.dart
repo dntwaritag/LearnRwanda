@@ -1,4 +1,4 @@
-class ConnectWithEveryoneScreen extends StatelessWidget {
+class EstablishConnectionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,25 +9,26 @@ class ConnectWithEveryoneScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Replace 'assets/connect_with_everyone_image.svg' with the actual file name
-              SvgPicture.asset(
-                'assets/connect_with_everyone_image.svg',
+              // Replace 'assets/establish_connections_image.png' with the actual file name
+              Image.asset(
+                'assets/establish_connections_image.png',
                 height: 200,
               ),
               SizedBox(height: 20),
               Text(
-                "Connect With Everyone",
+                "Establish connections widely",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.center,
               ),
               SizedBox(height: 10),
               Text(
-                "Always keep in touch with your tutor & friends. Let's get connected!",
+                "Stay connected with your tutor and friends — let’s keep in touch!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 14,
                   color: Colors.grey[700],
                 ),
               ),
