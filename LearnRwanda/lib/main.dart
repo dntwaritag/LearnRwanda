@@ -1,66 +1,135 @@
-class ConnectWithEveryoneScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Contact Info',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ContactInfoScreen(),
+    );
+  }
+}
+
+class ContactInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Replace 'assets/connect_with_everyone_image.svg' with the actual file name
-              SvgPicture.asset(
-                'assets/connect_with_everyone_image.svg',
-                height: 200,
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            // Action for back button
+          },
+        ),
+        title: Text('Contact Info'),
+        elevation: 0,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Address',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            ContactCard(
+              title: 'Kigali City',
+              subtitle: 'KN 52 st, Nyarugenge',
+              primaryLabel: 'Primary Address',
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Contacts',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            ContactCard(
+              title: '+250-7889-4519-3',
+              subtitle: 'Primary Phone',
+            ),
+            SizedBox(height: 10),
+            ContactCard(
+              title: 'learnrwanda@gmail.com',
+              subtitle: 'Primary Email',
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Action for adding new contact or address
+        },
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class ContactCard extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String primaryLabel;
+
+  ContactCard({
+    required this.title,
+    required this.subtitle,
+    this.primaryLabel = '',
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
               ),
-              SizedBox(height: 20),
-              Text(
-                "Connect With Everyone",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+            ),
+            SizedBox(height: 4),
+            Text(
+              subtitle,
+              style: TextStyle(color: Colors.black54),
+            ),
+            SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  primaryLabel.isNotEmpty ? primaryLabel : subtitle,
+                  style: TextStyle(color: Colors.blue),
                 ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                "Always keep in touch with your tutor & friends. Let's get connected!",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[700],
-                ),
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.blue),
-                ],
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle 'Next' button action if needed
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                TextButton(
+                  onPressed: () {
+                    // Action for updating contact or address
+                  },
+                  child: Text(
+                    'Update',
+                    style: TextStyle(color: Colors.blue),
                   ),
                 ),
-                child: Text(
-                  "Next",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );
