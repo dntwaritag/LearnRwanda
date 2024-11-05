@@ -1,4 +1,4 @@
-class FirstSeeLearningScreen extends StatelessWidget {
+class LearningJourneyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,26 +9,28 @@ class FirstSeeLearningScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Replace 'assets/first_see_learning_image.svg' with the actual file name
-              SvgPicture.asset(
-                'assets/first_see_learning_image.svg',
+              // Replace 'assets/learning_journey_image.png' with the actual file name
+              Image.asset(
+                'assets/learning_journey_image.png',
                 height: 200,
               ),
               SizedBox(height: 20),
               Text(
-                "First See Learning",
+                "Your learning journey is the reward",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.center,
               ),
               SizedBox(height: 10),
               Text(
-                "Forget about all the paper, get it all in one learning!",
+                "Open your eyes, open your mind and seek, get to understand.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[700],
+                  fontSize: 14,
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
                 ),
               ),
               SizedBox(height: 20),
@@ -45,7 +47,7 @@ class FirstSeeLearningScreen extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/connectWithEveryone');
+                  Navigator.pushNamed(context, '/establishConnections');
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,
