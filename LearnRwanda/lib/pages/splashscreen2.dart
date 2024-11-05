@@ -1,4 +1,4 @@
-class LearningJourneyScreen extends StatelessWidget {
+class EstablishConnectionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,14 +9,14 @@ class LearningJourneyScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Replace 'assets/learning_journey_image.png' with the actual file name
+              // Replace 'assets/establish_connections_image.png' with the actual file name
               Image.asset(
-                'assets/splash1.jpg',
+                'assets/establish_connections_image.png',
                 height: 200,
               ),
               SizedBox(height: 20),
               Text(
-                "Your learning journey is the reward",
+                "Establish connections widely",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -25,29 +25,28 @@ class LearningJourneyScreen extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                "Open your eyes, open your mind and seek, get to understand.",
+                "Stay connected with your tutor and friends — let’s keep in touch!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
+                  color: Colors.grey[700],
                 ),
               ),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Icon(Icons.circle, size: 10, color: Colors.grey),
+                  SizedBox(width: 5),
+                  Icon(Icons.circle, size: 10, color: Colors.grey),
+                  SizedBox(width: 5),
                   Icon(Icons.circle, size: 10, color: Colors.blue),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
                 ],
               ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/establishConnections');
+                  // Handle 'Next' button action if needed
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue,

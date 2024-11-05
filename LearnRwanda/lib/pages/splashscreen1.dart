@@ -11,7 +11,7 @@ class LearningJourneyScreen extends StatelessWidget {
             children: [
               // Replace 'assets/learning_journey_image.png' with the actual file name
               Image.asset(
-                'assets/splash1.jpg',
+                'assets/learning_journey_image.png',
                 height: 200,
               ),
               SizedBox(height: 20),
