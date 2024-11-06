@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class LSplashScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class LSplashScreen1 extends StatelessWidget {
             children: [
               // Replace 'assets/learning_journey_image.png' with the actual file name
               Image.asset(
-                'assets/learning_journey_image.png',
+                'assets/splash1.jpeg',
                 height: 200,
               ),
               SizedBox(height: 20),

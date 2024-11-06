@@ -1,4 +1,8 @@
-class EstablishConnectionsScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+
+class SplashScreen2 extends StatelessWidget {
+  const SplashScreen2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +15,7 @@ class EstablishConnectionsScreen extends StatelessWidget {
             children: [
               // Replace 'assets/establish_connections_image.png' with the actual file name
               Image.asset(
-                'assets/establish_connections_image.png',
+                'assets/splash2.jpeg',
                 height: 200,
               ),
               SizedBox(height: 20),
