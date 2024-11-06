@@ -1,68 +1,102 @@
-class ConnectWithEveryoneScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AccountScreen(),
+    );
+  }
+}
+
+class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: const Text(
+          'My Account',
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.9,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: const EdgeInsets.all(20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              // Replace 'assets/connect_with_everyone_image.svg' with the actual file name
-              SvgPicture.asset(
-                'assets/connect_with_everyone_image.svg',
-                height: 200,
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Connect With Everyone",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+              const CircleAvatar(
+                radius: 40,
+                backgroundImage: NetworkImage(
+                  'https://via.placeholder.com/150', // Replace with the profile picture URL
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
-                "Always keep in touch with your tutor & friends. Let's get connected!",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[700],
-                ),
+              const SizedBox(height: 10),
+              const Text(
+                'Marco Sardido',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const Text(
+                'learnrwanda@gmail.com',
+                style: TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.grey),
-                  SizedBox(width: 5),
-                  Icon(Icons.circle, size: 10, color: Colors.blue),
+                  TextButton(onPressed: () {}, child: const Text('Update Photo')),
+                  TextButton(onPressed: () {}, child: const Text('Edit')),
                 ],
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle 'Next' button action if needed
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                child: Text(
-                  "Next",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
+              const Divider(),
+              _buildSettingOption(context, 'General Information'),
+              _buildSettingOption(context, 'Security'),
+              _buildSettingOption(context, 'Payment'),
+              const Divider(),
+              const SizedBox(height: 10),
+              _buildActionOption(context, 'Close Account', Colors.red),
+              _buildActionOption(context, 'Upgrade Account', Colors.blue),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildSettingOption(BuildContext context, String title) {
+    return ListTile(
+      title: Text(title),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+      onTap: () {
+        // Add navigation or action here
+      },
+    );
+  }
+
+  Widget _buildActionOption(BuildContext context, String title, Color color) {
+    return ListTile(
+      title: Text(
+        title,
+        style: TextStyle(color: color),
+      ),
+      onTap: () {
+        // Add navigation or action here
+      },
     );
   }
 }
