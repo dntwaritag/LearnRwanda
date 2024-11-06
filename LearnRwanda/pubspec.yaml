@@ -88,3 +88,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter:
+  assets:
+    - assets/images/About1.png
+    - assets/images/Denis.png
+    - assets/images/vanessa.png
+    - assets/images/Ange.png
+    - assets/images/Henriette.png
+    - assets/images/Magot.png

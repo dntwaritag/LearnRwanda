@@ -23,7 +23,10 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("9:40 pm", style: TextStyle(color: Colors.black)),
+            Text(
+              "${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, '0')} pm",
+              style: TextStyle(color: Colors.black),
+            ),
             Row(
               children: [
                 Icon(Icons.signal_cellular_alt, color: Colors.black),
@@ -37,12 +40,13 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 20),
             Image.asset(
-              'LearnRwanda/lib/Assets/About1.png' , 
+              'assets/images/About1.png', 
               height: 100,
             ),
             SizedBox(height: 20),
@@ -50,23 +54,23 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 30),
             TeamMember(
               name: "CEO/Owner Denis Ntwaritaganzwa",
-              imagePath: 'LearnRwanda/lib/Assets/Denis.png', 
+              imagePath: 'assets/images/Denis.png', 
             ),
             TeamMember(
-              name: "Senior Software Engineer  Vanessa UMUGWANEZA",
-              imagePath: 'LearnRwanda/lib/Assets/vanessa.png', 
+              name: "Senior Software Engineer Vanessa UMUGWANEZA",
+              imagePath: 'assets/images/vanessa.png', 
             ),
             TeamMember(
               name: "Graphic Designer Ange Mukundente",
-              imagePath: 'LearnRwanda/lib/Assets/Ange.png', // Add your designer image here
+              imagePath: 'assets/images/Ange.png',
             ),
             TeamMember(
               name: "System Analyst Henriette Cyiza",
-              imagePath: 'LearnRwanda/lib/Assets/Henriette.png', // Add your analyst image here
+              imagePath: 'assets/images/Henriette.png',
             ),
             TeamMember(
               name: "IT Specialist Magot",
-              imagePath: 'LearnRwanda/lib/Assets/Magot.png', // Add your IT specialist image here
+              imagePath: 'assets/images/Magot.png',
             ),
             SizedBox(height: 20),
           ],
@@ -89,6 +93,9 @@ class TeamMember extends StatelessWidget {
         CircleAvatar(
           radius: 50,
           backgroundImage: AssetImage(imagePath),
+          onBackgroundImageError: (exception, stackTrace) {
+            print('Error loading image: $imagePath');
+          },
         ),
         SizedBox(height: 10),
         Text(name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
