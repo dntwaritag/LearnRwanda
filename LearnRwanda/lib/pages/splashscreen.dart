@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LearnRwandaSplashScreen extends StatelessWidget {
+class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +16,7 @@ class LearnRwandaSplashScreen extends StatelessWidget {
             SizedBox(height: 10),
             // Replace 'assets/learnrwanda_logo.png' with the actual file name
             Image.asset(
-              'assets/learnrwanda_logo.png',
+              'assets/logo.jpeg',
               height: 150,
               width: 200,
             ),
