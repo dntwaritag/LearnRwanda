@@ -242,3 +242,4 @@ void showSidebar(BuildContext context) {
     },
   );
 }
+
