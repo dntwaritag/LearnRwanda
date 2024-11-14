@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             SizedBox(height: 20),
             Image.asset(
-              'assets/images/About1.png', 
+              'assets/About1.png', 
               height: 100,
             ),
             SizedBox(height: 20),
@@ -54,23 +54,23 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 30),
             TeamMember(
               name: "CEO/Owner Denis Ntwaritaganzwa",
-              imagePath: 'assets/images/Denis.png', 
+              imagePath: 'assets/Denis.png', 
             ),
             TeamMember(
               name: "Senior Software Engineer Vanessa UMUGWANEZA",
-              imagePath: 'assets/images/vanessa.png', 
+              imagePath: 'assets/vanessa.png', 
             ),
             TeamMember(
               name: "Graphic Designer Ange Mukundente",
-              imagePath: 'assets/images/Ange.png',
+              imagePath: 'assets/Ange.png',
             ),
             TeamMember(
               name: "System Analyst Henriette Cyiza",
-              imagePath: 'assets/images/Henriette.png',
+              imagePath: 'assets/Henriette.png',
             ),
             TeamMember(
               name: "IT Specialist Magot",
-              imagePath: 'assets/images/Magot.png',
+              imagePath: 'assets/Magot.png',
             ),
             SizedBox(height: 20),
           ],
