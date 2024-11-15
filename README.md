@@ -1,7 +1,9 @@
 LearnRwanda Mobile Application (Frontend implementation)
+
 LearnRwanda is a mobile platform aimed at enhancing access to educational resources for students, teachers, and parents in Rwanda. This README covers the frontend aspects of the project, including the UI design, core screens, and interactive components.
 
 Table of Contents
+
 Project Purpose
 Key Features
 Tech Stack
@@ -14,6 +16,7 @@ Future Enhancements
 Contributors
 License
 Project Purpose
+
 The LearnRwanda app’s frontend is designed to:
 
 Offer a user-friendly and accessible interface for exploring educational resources.
