@@ -1,50 +1,100 @@
-# Learn Rwanda
+LearnRwanda Mobile Application (Frontend implementation)
+LearnRwanda is a mobile platform aimed at enhancing access to educational resources for students, teachers, and parents in Rwanda. This README covers the frontend aspects of the project, including the UI design, core screens, and interactive components.
 
-**Learn Rwanda** is a mobile app dedicated to empowering teachers and students in Rwanda by providing them with accessible educational resources and content. Our goal is to bridge the gap in educational materials and make learning more engaging and effective. By offering a range of resources aligned with Rwanda’s curriculum and tailored to local needs, *Learn Rwanda* aims to support both educators and students in their educational journeys.
+Table of Contents
+Project Purpose
+Key Features
+Tech Stack
+Project Architecture
+Components and Code Structure
+Setup and Installation
+Usage
+Challenges and Solutions
+Future Enhancements
+Contributors
+License
+Project Purpose
+The LearnRwanda app’s frontend is designed to:
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Key Features](#key-features)
-- [Target Audience](#target-audience)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Future Plans](#future-plans)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+Offer a user-friendly and accessible interface for exploring educational resources.
+Enable seamless navigation and interaction, supporting learning in offline and online modes.
+Provide a responsive layout that adapts to various device sizes.
+Key Features
+Sign-In Interface: Provides user authentication screens for email, Google, and Facebook login options.
+Offline-Ready UI: Allows users to download lessons for offline access, with an intuitive interface for managing downloads.
+Interactive Modules: Engaging quizzes and exercises for students to test their knowledge.
+Course Catalog and Filtering: Easy-to-browse and filterable course catalog, designed to make finding relevant content simple.
+Progress Tracking UI: Visual indicators for lesson completion and performance.
+Tech Stack
+Framework: Flutter
+Language: Dart (for building frontend components)
+Design: Custom components styled for mobile screens, leveraging Flutter’s layout widgets.
+Project Architecture
+The frontend follows an MVVM (Model-View-ViewModel) architecture pattern for clear separation between the UI and business logic, making the codebase easier to scale and maintain.
 
-## Project Overview
-*Learn Rwanda* is designed with a focus on:
-- Enhancing access to high-quality educational content.
-- Assisting teachers with lesson planning and teaching materials.
-- Providing students with tools for better understanding and practicing subjects.
+Model: Represents the UI state and data structure for components (e.g., courses, lesson content).
+View: Contains the UI screens and layout, displaying data to users and handling user inputs.
+ViewModel: Manages the UI logic, controls data flow between views, and handles user interactions.
+Directory Structure
+lua
+Copy code
+|-- lib/
+|   |-- models/        # Data models for app resources and lesson data
+|   |-- views/         # UI screens, including sign-in, course catalog, lessons
+|   |-- viewmodels/    # Logic controllers for managing data and UI state
+|   |-- services/      # Local storage and caching logic for offline readiness
+|   |-- utils/         # UI constants, themes, and reusable functions
+|-- assets/            # Images, icons, fonts, and other resources
+|-- README.md          # Project documentation
+Components and Code Structure
+1. Authentication Screens
+Location: lib/views/authentication/
+Purpose: Provides the UI for email-password login and Google/Facebook social login. Customizable input fields and buttons offer a cohesive experience.
+2. Course Catalog UI
+Location: lib/views/course_catalog.dart
+Purpose: Displays courses in a scrollable format, with filtering options by category, subject, and level.
+3. Lesson and Module UI
+Location: lib/views/lesson_view.dart
+Purpose: UI for displaying lesson content, including interactive modules, quizzes, and media.
+4. Offline Access Interface
+Location: lib/views/offline_access.dart
+Purpose: Allows users to manage downloaded lessons for offline access, with an easy-to-use interface for tracking offline availability.
+5. Progress Tracking UI
+Location: lib/views/progress_view.dart
+Purpose: Shows lesson completion status and overall learning progress in a visually engaging way.
+Setup and Installation
+Prerequisites
 
-With support for offline access and a user-friendly interface, this app brings relevant resources directly into classrooms and homes, promoting an inclusive learning environment that aligns with Rwanda’s education goals.
+Flutter SDK installed (Download Flutter)
+Installation
 
-## Key Features
-- **Curriculum-Aligned Content**: Comprehensive coverage of subjects according to Rwanda’s national curriculum.
-- **Resource Library**: Access to articles, textbooks, videos, and interactive quizzes.
-- **Teacher Tools**: Lesson plans, teaching aids, and resources to support classroom instruction.
-- **Student Dashboard**: Personalized learning paths and resources for self-study.
-- **Offline Access**: Downloadable resources for users in areas with limited internet connectivity.
-- **Community Forums**: Space for students and teachers to discuss topics, share tips, and solve challenges together.
+bash
+Copy code
+git clone https://github.com/yourusername/LearnRwanda-Frontend.git
+cd LearnRwanda-Frontend
+flutter pub get
+Run the App
 
-## Target Audience
-This app is tailored for:
-- **Teachers** looking for quality resources to enhance their lesson delivery.
-- **Students** seeking additional study materials to reinforce learning outside the classroom.
-- **Educational Organizations** and stakeholders focused on improving access to educational content in Rwanda.
-
-## Technologies Used
-- **Frontend**: Flutter for cross-platform compatibility.
-- **Backend**: Firebase for user authentication and real-time data storage.
-- **Database**: Cloud Firestore for storing educational content and user-generated data.
-- **APIs**: Integration with third-party education content providers.
-
-## Getting Started
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-repo/LearnRwanda.git
-   cd LearnRwanda
- 
+bash
+Copy code
+flutter run
+Usage
+Sign In: Access the app through the authentication screens.
+Browse Courses: Navigate through the course catalog and filter options.
+Download Lessons: Select lessons for offline access in areas with limited internet.
+Track Progress: View your progress across lessons and modules.
+Challenges and Solutions
+Offline Functionality for UI: Optimizing the user experience for offline scenarios was a priority, achieved by designing a simplified download and cache UI.
+Responsive Design: Ensuring the app layout is responsive on various mobile devices was addressed through flexible layout widgets in Flutter.
+Future Enhancements
+Interactive Animations: Add animations for lesson transitions and UI interactions to enhance engagement.
+UI Personalization: Enable users to customize their app theme and layout preferences.
+Accessibility Improvements: Continue aligning with accessibility standards (WCAG) for inclusive use.
+Contributors
+Ange Mukundente
+Denis Ntwaritaganzwa
+Henriette Cyiza
+Magot
+Vanessa
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
